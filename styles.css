@@ -1,0 +1,167 @@
+@import url('https://fonts.googleapis.com/css2?family=Red+Hat+Text:wght@700&display=swap');
+
+
+:root {
+    --Grayish-blue: hsl(237, 18%, 59%);
+    --Soft-red: hsl(345, 95%, 68%);
+
+    --White: hsl(0, 0%, 100%);
+    --Dark-desaturated-blue: hsl(236, 21%, 26%);
+    --Very-dark-blue: hsl(235, 16%, 14%);
+    --Very-dark-mostly-black-blue: hsl(234, 17%, 12%);
+}
+
+*,
+::after,
+::before {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    min-height: 100vh;
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: url(./images/bg-stars.svg) no-repeat, url(./images/pattern-hills.svg) no-repeat bottom, linear-gradient(0deg, var(--Very-dark-blue), var(--Very-dark-mostly-black-blue));
+    background-size: 100% 77.5%, 100% 22.5%, 100% 100%;
+    font-family: 'Red Hat Text', sans-serif;
+    font-weight: 700;
+}
+
+main {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    height: 100vh;
+    padding: 5rem 0 2.5rem 0;
+}
+
+main h1 {
+    text-transform: uppercase;
+    text-align: center;
+    color: var(--White);
+    font-size: 21px;
+    letter-spacing: 7px;
+}
+
+.timer-container {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    gap: 2rem;
+    margin-top: -10rem;
+}
+
+.timer {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    align-items: center;
+}
+
+.timer p {
+    color: var(--Grayish-blue);
+    letter-spacing: 6px;
+    text-transform: uppercase;
+    font-size: 13px;
+}
+
+.counter {
+    width: 150px;
+    height: 130px;
+    background: var(--Dark-desaturated-blue);
+    color: var(--Soft-red);
+    font-size: 75px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border-radius: 0.5rem;
+    position: relative;
+    box-shadow: 0 8px 0 0 var(--Very-dark-mostly-black-blue);
+    overflow: hidden;
+}
+
+hr {
+    width: 100%;
+    border: 2px solid var(--Very-dark-blue);
+    opacity: 0.2;
+    position: absolute;
+    z-index: 1;
+}
+
+.counter::before,
+.counter::after {
+    content: "";
+    height: 10px;
+    width: 10px;
+    background-color: var(--Very-dark-mostly-black-blue);
+    border-radius: 50%;
+    position: absolute;
+}
+
+.counter::before {
+    left: -5px;
+}
+
+.counter::after {
+    right: -5px;
+}
+
+
+.footer {
+    display: flex;
+    gap: 2rem;
+}
+
+.footer a:hover>svg path {
+    fill: var(--Soft-red);
+}
+
+/*Responsiveness */
+
+@media (max-width: 767px) {
+    body {
+        width: 100vw
+    }
+
+    main {
+        width: 100%;
+        padding: 2rem;
+    }
+
+    .timer-container {
+        justify-content: center;
+        gap: 1rem;
+    }
+
+    .counter {
+        width: 60px;
+        height: 50px;
+    }
+
+    .counter span {
+        font-size: 30px;
+    }
+
+    .timer p {
+        font-size: 7px;
+        letter-spacing: 2px;
+    }
+
+    main h1 {
+        margin-top: 8rem;
+        font-size: 14px;
+        letter-spacing: 4px;
+    }
+
+    .counter::before,
+    .counter::after {
+        width: 8px;
+        height: 8px;
+    }
+}
